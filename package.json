@@ -1,0 +1,9 @@
+{
+  "name": "captains-holiday",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "socket.io": "*",
+    "request": "~2.12.0"
+  }
+}
