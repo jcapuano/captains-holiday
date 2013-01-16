@@ -30,7 +30,7 @@ io.sockets.on('connection', function (socket) {
 		request.post({url:baseURL + 'Create',json:true,body: role}, function (error, response, data) {
         	if (!error && response.statusCode == 200) {
             	console.log("added " + data);
-                socket.broadcast.emit('roleAdded', data);
+                io.sockets.emit('roleAdded', data);
 			}
             else {
             	console.log("error " + response);
@@ -44,7 +44,7 @@ io.sockets.on('connection', function (socket) {
 		request.post({url:baseURL + 'Edit',json:true,body: role}, function (error, response, data) {
         	if (!error && response.statusCode == 200) {
             	console.log("updated " + data);
-                socket.broadcast.emit('roleUpdated', data);
+                io.sockets.emit('roleUpdated', data);
 			}
             else {
             	console.log("error " + response);
@@ -58,7 +58,7 @@ io.sockets.on('connection', function (socket) {
 		request.post({url:baseURL + 'Delete/' + id}, function (error, response, data) {
         	if (!error && response.statusCode == 200) {
             	console.log("deleted " + id);
-                socket.broadcast.emit('roleDeleted', id);
+                io.sockets.emit('roleDeleted', id);
 			}
             else {
             	console.log("error " + response);
